@@ -118,3 +118,7 @@ test/                   tests (node --test)
 ```
 
 In `fixtures/vault/`, only the `_AI/` folder is indexed. The notes in `_AI-Inbox/` (a proposal and a rejected one), in `_Fontes/`, and those of type `system`, `prompt` or `priority: must` exist to prove that the search never returns them.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

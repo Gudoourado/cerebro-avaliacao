@@ -116,3 +116,7 @@ test/                   testes (node --test)
 ```
 
 Em `fixtures/vault/`, só a pasta `_AI/` é indexada. As notas em `_AI-Inbox/` (proposta e rejeitada), em `_Fontes/` e as de tipo `system`, `prompt` ou `priority: must` existem para provar que a busca nunca as devolve.
+
+## Licença
+
+MIT. Veja [LICENSE](LICENSE).
