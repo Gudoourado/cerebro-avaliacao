@@ -1,0 +1,357 @@
+{
+  "conjunto": "validacao",
+  "parametros": {
+    "maxResults": 3,
+    "maxBytes": 1024,
+    "maxQueryChars": 20000,
+    "maxQueryTerms": 64,
+    "minScore": 15,
+    "relativeCutoff": 0.5,
+    "projectBoost": 1.25,
+    "boost": {
+      "title": 3,
+      "keywords": 2,
+      "aliases": 2,
+      "description": 2,
+      "appliesWhen": 2,
+      "body": 1
+    },
+    "prefixMinLen": 5,
+    "fuzzyMinLen": 6,
+    "fuzzy": 0.2
+  },
+  "resumo": {
+    "positivos": 10,
+    "acertosPositivos": 10,
+    "negativos": 6,
+    "negativosComNota": 0
+  },
+  "casos": [
+    {
+      "prompt": "estou somando valores monetários e o centavo não bate",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "rule-decimal-financeiro"
+      ],
+      "devolvidas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 112.02
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 112.02
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "posso usar parseFloat no total da fatura?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "rule-decimal-financeiro"
+      ],
+      "devolvidas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 304.43
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 304.43
+        },
+        {
+          "id": "pat-polling-limite",
+          "score": 2
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "a legenda dessincroniza depois de deslocar o tempo",
+      "cwd": "/projetos/editor",
+      "projeto": "prj-editor",
+      "esperados": [
+        "pat-srt-deslocar-tempo"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 405.01
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 405.01
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 7.14
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "validação do arquivo de vídeo enviado pelo usuário",
+      "cwd": "/projetos/editor/src/app",
+      "projeto": "prj-editor",
+      "esperados": [
+        "lrn-mp4-mime-vazio"
+      ],
+      "devolvidas": [
+        {
+          "id": "lrn-mp4-mime-vazio",
+          "score": 318.99
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "lrn-mp4-mime-vazio",
+          "score": 318.99
+        },
+        {
+          "id": "pat-polling-limite",
+          "score": 5.25
+        },
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 3.21
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 1.61
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "ficar consultando o status até terminar é boa ideia?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "pat-polling-limite"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 42.79
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 42.79
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 2.05
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "a request está estourando o tempo limite no upload grande",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "dec-fila-operacao-lenta"
+      ],
+      "devolvidas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 275.89
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 275.89
+        },
+        {
+          "id": "pat-polling-limite",
+          "score": 20.81
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "como devolver uma resposta imediata e processar depois",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "dec-fila-operacao-lenta"
+      ],
+      "devolvidas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 85.71
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 85.71
+        },
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 1.86
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "money rounding is off by one cent in the invoice total",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "rule-decimal-financeiro"
+      ],
+      "devolvidas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 192.47
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 192.47
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "infinite loop while waiting for the job to finish",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "pat-polling-limite"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 161.6
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 161.6
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 5.89
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "srt export time format",
+      "cwd": "/projetos/editor",
+      "projeto": "prj-editor",
+      "esperados": [
+        "pat-srt-deslocar-tempo"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 318.88
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 318.88
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "escreve um haiku sobre o inverno",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "qual a capital da austrália",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "arruma a indentação desse arquivo",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "cria um componente de botão com variantes",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 2.65
+        }
+      ],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "faz commit do que está pronto",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 2.89
+        }
+      ],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "explica o que esse regex faz",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    }
+  ]
+}

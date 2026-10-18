@@ -1,0 +1,505 @@
+{
+  "conjunto": "calibracao",
+  "parametros": {
+    "maxResults": 3,
+    "maxBytes": 1024,
+    "maxQueryChars": 20000,
+    "maxQueryTerms": 64,
+    "minScore": 15,
+    "relativeCutoff": 0.5,
+    "projectBoost": 1.25,
+    "boost": {
+      "title": 3,
+      "keywords": 2,
+      "aliases": 2,
+      "description": 2,
+      "appliesWhen": 2,
+      "body": 1
+    },
+    "prefixMinLen": 5,
+    "fuzzyMinLen": 6,
+    "fuzzy": 0.2
+  },
+  "resumo": {
+    "positivos": 14,
+    "acertosPositivos": 14,
+    "negativos": 10,
+    "negativosComNota": 1
+  },
+  "casos": [
+    {
+      "prompt": "preciso corrigir o cálculo financeiro que está arredondando errado no prisma",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "rule-decimal-financeiro"
+      ],
+      "devolvidas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 135.13
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 135.13
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "posso converter Decimal para Number antes de somar?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "rule-decimal-financeiro"
+      ],
+      "devolvidas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 232.27
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 232.27
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "como evitar drift no timecode do srt?",
+      "cwd": "/projetos/editor",
+      "projeto": "prj-editor",
+      "esperados": [
+        "pat-srt-deslocar-tempo"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 191.21
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 191.21
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "o upload de mp4 veio com mime vazio, o que fazer?",
+      "cwd": "/projetos/editor/src",
+      "projeto": "prj-editor",
+      "esperados": [
+        "lrn-mp4-mime-vazio"
+      ],
+      "devolvidas": [
+        {
+          "id": "lrn-mp4-mime-vazio",
+          "score": 384.79
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "lrn-mp4-mime-vazio",
+          "score": 384.79
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 12.73
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "quero implementar polling para aguardar a transcrição",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "pat-polling-limite"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 53.17
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 53.17
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 20.78
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "o polling está rodando para sempre, como limitar as tentativas?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "pat-polling-limite"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 126.99
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 126.99
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 2.05
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "essa operação demora uns 10 segundos, devo responder o que?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "dec-fila-operacao-lenta"
+      ],
+      "devolvidas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 55.18
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 55.18
+        },
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 2.46
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "vale a pena usar fila com worker para o processamento pesado?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "dec-fila-operacao-lenta"
+      ],
+      "devolvidas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 74.03
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 74.03
+        },
+        {
+          "id": "pat-polling-limite",
+          "score": 21.71
+        },
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 4.55
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "como fazemos transcrição assíncrona com 202 accepted?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "dec-fila-operacao-lenta"
+      ],
+      "devolvidas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 89.9
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 89.9
+        },
+        {
+          "id": "pat-polling-limite",
+          "score": 2.54
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "preciso de um retry com backoff no interval do angular",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "pat-polling-limite"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 55.44
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 55.44
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "where is the rule about decimal rounding in financial code?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "rule-decimal-financeiro"
+      ],
+      "devolvidas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 62.34
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 62.34
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "subtitle timecode drifting after shift",
+      "cwd": "/projetos/editor",
+      "projeto": "prj-editor",
+      "esperados": [
+        "pat-srt-deslocar-tempo"
+      ],
+      "devolvidas": [
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 46.72
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-srt-deslocar-tempo",
+          "score": 46.72
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "o que fazer quando o navegador manda octet-stream no upload de vídeo",
+      "cwd": "/projetos/editor",
+      "projeto": "prj-editor",
+      "esperados": [
+        "lrn-mp4-mime-vazio"
+      ],
+      "devolvidas": [
+        {
+          "id": "lrn-mp4-mime-vazio",
+          "score": 383.34
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "lrn-mp4-mime-vazio",
+          "score": 383.34
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 12.73
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "qual o padrão para operações lentas na api?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [
+        "dec-fila-operacao-lenta"
+      ],
+      "devolvidas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 85.36
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 85.36
+        }
+      ],
+      "decisao": "inject",
+      "ok": true
+    },
+    {
+      "prompt": "qual a melhor receita de bolo de cenoura",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "me ajuda a escolher um nome para o gato",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "como está o clima em são paulo hoje?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "renomeia esse componente para UserCard",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 2.65
+        }
+      ],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "roda os testes de novo e me mostra o resultado",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "atualiza a versão do pacote no package.json",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "o ponto de entrada do app mudou de lugar",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [
+        {
+          "id": "rule-decimal-financeiro",
+          "score": 7.7
+        }
+      ],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "coloca um loop simples nesse script de build",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 13.97
+        }
+      ],
+      "decisao": "abstain",
+      "ok": true
+    },
+    {
+      "prompt": "qual o status do deploy de ontem?",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 18.74
+        }
+      ],
+      "candidatas": [
+        {
+          "id": "pat-polling-limite",
+          "score": 18.74
+        },
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 2.05
+        }
+      ],
+      "decisao": "inject",
+      "ok": false
+    },
+    {
+      "prompt": "preciso de um service worker para cache offline",
+      "cwd": null,
+      "projeto": null,
+      "esperados": [],
+      "devolvidas": [],
+      "candidatas": [
+        {
+          "id": "dec-fila-operacao-lenta",
+          "score": 14.16
+        }
+      ],
+      "decisao": "abstain",
+      "ok": true
+    }
+  ]
+}

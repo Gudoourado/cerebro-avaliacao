@@ -1,0 +1,18 @@
+[
+  { "prompt": "estou somando valores monetários e o centavo não bate", "expected": ["rule-decimal-financeiro"] },
+  { "prompt": "posso usar parseFloat no total da fatura?", "expected": ["rule-decimal-financeiro"] },
+  { "prompt": "a legenda dessincroniza depois de deslocar o tempo", "cwd": "/projetos/editor", "expected": ["pat-srt-deslocar-tempo"] },
+  { "prompt": "validação do arquivo de vídeo enviado pelo usuário", "cwd": "/projetos/editor/src/app", "expected": ["lrn-mp4-mime-vazio"] },
+  { "prompt": "ficar consultando o status até terminar é boa ideia?", "expected": ["pat-polling-limite"] },
+  { "prompt": "a request está estourando o tempo limite no upload grande", "expected": ["dec-fila-operacao-lenta"] },
+  { "prompt": "como devolver uma resposta imediata e processar depois", "expected": ["dec-fila-operacao-lenta"] },
+  { "prompt": "money rounding is off by one cent in the invoice total", "expected": ["rule-decimal-financeiro"] },
+  { "prompt": "infinite loop while waiting for the job to finish", "expected": ["pat-polling-limite"] },
+  { "prompt": "srt export time format", "cwd": "/projetos/editor", "expected": ["pat-srt-deslocar-tempo"] },
+  { "prompt": "escreve um haiku sobre o inverno", "expected": [] },
+  { "prompt": "qual a capital da austrália", "expected": [] },
+  { "prompt": "arruma a indentação desse arquivo", "expected": [] },
+  { "prompt": "cria um componente de botão com variantes", "expected": [] },
+  { "prompt": "faz commit do que está pronto", "expected": [] },
+  { "prompt": "explica o que esse regex faz", "expected": [] }
+]

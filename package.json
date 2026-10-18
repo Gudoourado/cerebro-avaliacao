@@ -1,0 +1,19 @@
+{
+  "name": "cerebro-avaliacao",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Avaliação exploratória da busca de notas do Cérebro, sobre um vault sintético.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test",
+    "eval": "node bin/eval.mjs",
+    "resultados": "node bin/eval.mjs --dataset validacao --salvar && node bin/eval.mjs --dataset calibracao --salvar"
+  },
+  "dependencies": {
+    "minisearch": "7.2.0",
+    "yaml": "2.9.1"
+  }
+}
